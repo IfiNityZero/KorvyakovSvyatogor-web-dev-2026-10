@@ -1,0 +1,39 @@
+/* ===== Страница «Оформить заказ» ===== */
+
+.order-section {
+    margin-bottom: 55px;
+}
+
+.order-section__title {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* Сообщение о пустом заказе */
+.order-empty {
+    padding: 20px 0 30px;
+}
+
+.order-empty__text {
+    font-size: 19px;
+    line-height: 1.5;
+    color: #000;
+}
+
+.order-empty__link {
+    color: tomato;
+    text-decoration: none;
+}
+
+.order-empty__link:hover {
+    text-decoration: underline;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 600px) {
+    .order-section__title {
+        text-align: center;
+    }
+}

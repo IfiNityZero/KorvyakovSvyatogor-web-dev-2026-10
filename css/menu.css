@@ -1,0 +1,297 @@
+/* ===== Страница «Собрать ланч» ===== */
+
+.menu-section {
+    margin-bottom: 55px;
+}
+
+.menu-section__title {
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* Блок с блюдами: CSS Grid, 3 колонки по 1fr */
+.dishes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    min-width: 0;
+}
+
+/* Блок каждого блюда: Flex, вертикальное направление */
+.dish {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 30px 40px;
+    border: 2px solid transparent;
+    border-radius: 35px;
+    background-color: #fff;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+}
+
+.dish:hover {
+    border: 2px solid tomato;
+}
+
+/* Кнопка внутри карточки меняется при наведении на карточку (контекстный селектор) */
+.dish:hover .dish__button {
+    background-color: tomato;
+    color: #fff;
+}
+
+.dish__img {
+    width: 100%;
+    height: auto;
+    border-radius: 35px;
+    object-fit: cover;
+}
+
+.dish__price {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #000;
+}
+
+.dish__name {
+    margin-top: 5px;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #000;
+}
+
+.dish__count {
+    margin-top: auto;
+    padding-top: 15px;
+    font-size: 16px;
+    color: #8a8a8a;
+}
+
+.dish__button {
+    margin-top: 15px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f1eee9;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 800px) {
+    .dishes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+    .dishes {
+        grid-template-columns: 1fr;
+    }
+
+    .header__title {
+        text-align: center;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav__link {
+        font-size: 24px;
+    }
+
+    .menu-section__title {
+        text-align: center;
+    }
+
+    .dish {
+        padding: 25px 30px;
+    }
+}
+
+/* Выбранное блюдо выделяется рамкой */
+.dish--selected {
+    border: 2px solid tomato;
+}
+
+/* Фильтры категории */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 30px;
+    margin-bottom: 25px;
+}
+
+.filters__button {
+    padding: 4px 0;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 18px;
+    color: #2e7d32;
+    cursor: pointer;
+}
+
+.filters__button:hover {
+    text-decoration: underline;
+}
+
+.filters__button.active {
+    padding: 4px 12px;
+    background-color: #2e7d32;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Скрытые фильтром карточки */
+.dish[hidden] {
+    display: none;
+}
+
+/* ===== Блок с вариантами комбо ===== */
+.combos {
+    margin-bottom: 60px;
+}
+
+.combos__title {
+    margin-bottom: 35px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+}
+
+.combos__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px 20px;
+}
+
+.combo {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.combo--dessert {
+    flex-direction: column;
+    align-items: center;
+}
+
+.combo__dish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.combo__img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+
+.combo__img:hover {
+    transform: translateY(-6px) scale(1.15);
+}
+
+.combo__caption {
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+}
+
+.combo__note {
+    margin-top: 8px;
+    font-size: 12px;
+    font-style: italic;
+    color: #000;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .combos__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .combos__list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Панель перехода к оформлению заказа ===== */
+.order-panel {
+    position: sticky;
+    bottom: 0;
+    z-index: 50;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px 40px;
+    padding: 18px 40px;
+    background-color: #fff;
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.order-panel[hidden] {
+    display: none;
+}
+
+.order-panel__total {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+}
+
+.order-panel__link {
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: tomato;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 17px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.order-panel__link--disabled {
+    background-color: #f1eee9;
+    color: #a0a0a0;
+    pointer-events: none;
+}
+
+@media (max-width: 600px) {
+    .order-panel {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-section__title {
+        font-size: 22px;
+    }
+
+    .dish {
+        padding: 20px 22px;
+    }
+}

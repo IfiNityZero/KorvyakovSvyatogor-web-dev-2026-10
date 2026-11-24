@@ -1,0 +1,292 @@
+/* ===== Базовые стили ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 18px;
+    color: #000;
+    background-color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ===== Шапка ===== */
+.header {
+    padding: 50px 0 40px;
+}
+
+.header__back {
+    display: inline-block;
+    margin-bottom: 25px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 13px;
+    color: #999;
+    text-decoration: none;
+}
+
+.header__back:hover {
+    color: tomato;
+}
+
+.header__title {
+    margin-bottom: 30px;
+    font-size: 52px;
+    font-weight: 700;
+    color: #000;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 30px;
+}
+
+.nav__link {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    color: tomato;
+}
+
+.nav__link.active {
+    color: tomato;
+}
+
+/* ===== Основное содержимое ===== */
+.main {
+    flex: 1 0 auto;
+    padding-bottom: 60px;
+}
+
+/* --- О нас --- */
+.about {
+    padding-bottom: 40px;
+}
+
+.about__img {
+    display: block;
+    width: 900px;
+    height: 600px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.about__title {
+    margin: 35px 0 20px;
+    font-size: 34px;
+    font-weight: 700;
+    color: #000;
+}
+
+.about__text {
+    max-width: 900px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+}
+
+/* --- Преимущества --- */
+.advantages {
+    padding-bottom: 40px;
+}
+
+.advantages__title {
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+}
+
+.advantages__list {
+    padding-left: 25px;
+}
+
+.advantages__item {
+    margin-bottom: 8px;
+    font-size: 19px;
+    line-height: 1.4;
+    color: #000;
+}
+
+/* --- Популярные блюда --- */
+.popular {
+    padding-bottom: 20px;
+}
+
+.popular__title {
+    margin-bottom: 25px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+}
+
+.popular__table {
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.popular__cell {
+    padding: 14px 20px;
+    border: 1px solid #000;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+}
+
+.popular__cell--num {
+    width: 60px;
+}
+
+/* ===== Футер ===== */
+.footer {
+    flex-shrink: 0;
+    padding: 35px 0;
+    background-color: black;
+    color: white;
+}
+
+.footer__text {
+    font-size: 18px;
+    color: white;
+}
+
+.footer__link {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer__link:hover {
+    color: tomato;
+}
+
+/* ===== Страница-заглушка ===== */
+.stub {
+    padding: 60px 0;
+}
+
+.stub__title {
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.stub__text {
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.stub__link {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 18px;
+    color: tomato;
+    text-decoration: none;
+}
+
+.stub__link:hover {
+    text-decoration: underline;
+}
+
+/* ===== Адаптивность главной страницы ===== */
+@media (max-width: 800px) {
+    .about__img {
+        width: 500px;
+        height: auto;
+    }
+
+    .nav {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+    .header__title {
+        text-align: center;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav__link {
+        font-size: 24px;
+    }
+
+    .about__img {
+        width: 100%;
+        height: auto;
+    }
+
+    .popular__cell {
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .popular__cell {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}
+
+/* ===== Мелкие экраны ===== */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .header {
+        padding: 30px 0 25px;
+    }
+
+    .header__title {
+        font-size: 34px;
+    }
+
+    .about__title,
+    .advantages__title,
+    .popular__title {
+        font-size: 24px;
+    }
+
+    .about__text,
+    .advantages__item {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 400px) {
+    .header__title {
+        font-size: 28px;
+    }
+
+    .popular__title {
+        font-size: 21px;
+    }
+}

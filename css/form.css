@@ -1,0 +1,270 @@
+/* ===== Блок оформления заказа ===== */
+
+.order {
+    padding: 30px 0 70px;
+}
+
+.order__title {
+    margin-bottom: 45px;
+    font-size: 34px;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+}
+
+.order__columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 90px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.order__subtitle {
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+}
+
+/* --- Поля --- */
+.field {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 20px;
+    border: none;
+}
+
+.field__label {
+    margin-bottom: 8px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+}
+
+.field__input,
+.field__select,
+.field__textarea {
+    width: 100%;
+    max-width: 320px;
+    height: 42px;
+    padding: 8px 12px;
+    border: 1px solid #000;
+    border-radius: 0;
+    background-color: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    color: #000;
+}
+
+.field__select {
+    max-width: 290px;
+}
+
+.field__textarea {
+    max-width: 320px;
+    height: 180px;
+    resize: vertical;
+}
+
+.field__input:focus,
+.field__select:focus,
+.field__textarea:focus {
+    outline: 2px solid tomato;
+}
+
+.field__hint {
+    margin-top: 6px;
+    font-size: 15px;
+    font-style: italic;
+    color: #555;
+}
+
+/* --- Чекбокс --- */
+.field--checkbox {
+    flex-direction: row;
+    align-items: center;
+}
+
+.field__checkbox {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    accent-color: #1a73e8;
+}
+
+.field__checkbox-label {
+    font-size: 18px;
+    color: #000;
+}
+
+/* --- Радиокнопки --- */
+.field--radio {
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.field__radio-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+}
+
+.field__radio {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    accent-color: #1a73e8;
+}
+
+/* --- Кнопки --- */
+.order__buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.order__button {
+    min-width: 120px;
+    padding: 8px 24px;
+    border: 1px solid #000;
+    border-radius: 0;
+    background-color: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+}
+
+.order__button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 800px) {
+    .order__columns {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .field__input,
+    .field__select,
+    .field__textarea {
+        max-width: 100%;
+    }
+}
+
+/* ===== Состав заказа ===== */
+.order-summary {
+    margin-bottom: 30px;
+}
+
+.order-summary__row {
+    margin-bottom: 20px;
+}
+
+.order-summary__row--total {
+    margin-top: 30px;
+}
+
+.order-summary__category {
+    margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
+.order-summary__value {
+    font-size: 18px;
+    color: #000;
+}
+
+.order-summary__value--empty {
+    color: #8a8a8a;
+}
+
+.order-summary__total {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+}
+
+.order-summary__empty {
+    font-size: 18px;
+    color: #000;
+}
+
+/* ===== Уведомление ===== */
+.notification {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.notification__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    max-width: 520px;
+    padding: 50px 60px;
+    border-radius: 25px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.notification__text {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #000;
+}
+
+.notification__button {
+    padding: 10px 35px;
+    border: 1px solid #000;
+    border-radius: 12px;
+    background-color: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+}
+
+.notification__button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .notification__box {
+        padding: 35px 25px;
+    }
+
+    .notification__text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .order__title {
+        font-size: 26px;
+    }
+
+    .order__subtitle {
+        font-size: 21px;
+    }
+}

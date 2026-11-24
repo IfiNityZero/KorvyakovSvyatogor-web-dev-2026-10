@@ -4,7 +4,7 @@
 // и хранит заказы в localStorage браузера.
 
 const API_BASE_URL = 'https://amd.dedyn.io:15243';
-const API_KEY = ''; // персональный ключ (UUID), выдаётся в СДО
+const API_KEY = 'd3792683-e66e-4d04-867a-4905fa35dbf5'; // ключ пользователя (UUID); можно заменить на свой
 const DEMO_ORDERS_KEY = 'foodConstructOrders';
 const API_REQUEST_TIMEOUT = 8000;
 

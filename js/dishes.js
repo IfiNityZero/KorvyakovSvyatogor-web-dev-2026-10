@@ -8,6 +8,14 @@ const DISHES_REQUEST_TIMEOUT = 4000;
 
 let dishes = [];
 
+// Сервер может отдавать категорию главного блюда как "main",
+// на страницах используется "main_course".
+function normalizeDish(dish) {
+    return Object.assign({}, dish, {
+        category: dish.category === 'main' ? 'main_course' : dish.category
+    });
+}
+
 async function loadDishes() {
     try {
         const controller = new AbortController();
@@ -25,12 +33,12 @@ async function loadDishes() {
             throw new Error('Сервер вернул статус ' + response.status);
         }
 
-        dishes = await response.json();
+        dishes = (await response.json()).map(normalizeDish);
     } catch (error) {
         console.warn('Не удалось загрузить блюда через API, используются локальные данные:', error);
 
         const response = await fetch('data/dishes.json');
-        dishes = await response.json();
+        dishes = (await response.json()).map(normalizeDish);
     }
 
     return dishes;
